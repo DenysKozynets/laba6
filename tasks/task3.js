@@ -9,7 +9,13 @@
 "Для заокруглення числа можна до десятих використовуйте .toFixed(1)"
 
 function addSuccessPercent(olympicRepresentation) {
-  // Ваш код
+  return olympicRepresentation.map(item => {
+    const percentOfSuccess = ((item.medals / item.athletes) * 100).toFixed(1); // Обчислюємо відсоток і округлюємо до десятих
+    return {
+      ...item,  // Копіюємо початковий об'єкт
+      percentOfSuccess: Number(percentOfSuccess) // Додаємо нове поле з відсотком успішності
+    };
+  });
 }
 
 const olympicRepresentation = [
